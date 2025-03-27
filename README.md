@@ -1,13 +1,18 @@
 # TypeFury AI
 
-A modern web application built with Vite, React, TypeScript, and Tailwind CSS.
+TypeFury AI is a solo typing speed game powered by OpenAI’s GPT API. Choose your difficulty, type out AI-generated sentences, and challenge your speed and accuracy in real time. Built with React, Vite, TailwindCSS, and a splash of GenAI magic.
 
-## Features
+## 🚀 Features:
 
-- ⚡️ Vite for lightning-fast development
-- ⚛️ React 18 with TypeScript
-- 🎨 Tailwind CSS for styling
-- 📱 Responsive design
+- GPT-generated sentences based on difficulty (Easy / Medium / Hard)
+
+- Live WPM and accuracy scoring
+
+- Clean UI with TailwindCSS
+
+- Replayable & fast-paced gameplay
+
+- Built entirely using Cursor AI
 
 ## Getting Started
 
