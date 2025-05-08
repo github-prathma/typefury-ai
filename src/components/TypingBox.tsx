@@ -7,7 +7,7 @@ interface TypingBoxProps {
   difficulty: string;
 }
 
-const TypingBox: React.FC<TypingBoxProps> = ({ text, onComplete, onInput, difficulty }) => {
+const TypingBox: React.FC<TypingBoxProps> = ({ text, onComplete, onInput }) => {
   const [input, setInput] = useState('');
   const [startTime, setStartTime] = useState<number | null>(null);
   const [isActive, setIsActive] = useState(false);
