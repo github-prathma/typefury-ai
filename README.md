@@ -2,6 +2,10 @@
 
 TypeFury AI is a solo typing speed game powered by OpenAI’s GPT API. Choose your difficulty, type out AI-generated sentences, and challenge your speed and accuracy in real time. Built with React, Vite, TailwindCSS, and a splash of GenAI magic.
 
+
+https://github.com/user-attachments/assets/aa50c925-808c-4c03-908d-d05817e6a356
+
+
 ## 🚀 Features:
 
 - GPT-generated sentences based on difficulty (Easy / Medium / Hard)
