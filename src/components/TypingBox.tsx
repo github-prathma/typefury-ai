@@ -3,10 +3,11 @@ import React, { useState, useEffect } from 'react';
 interface TypingBoxProps {
   text: string;
   onComplete: (time: number) => void;
+  onInput: (input: string) => void;
   difficulty: string;
 }
 
-const TypingBox: React.FC<TypingBoxProps> = ({ text, onComplete, difficulty }) => {
+const TypingBox: React.FC<TypingBoxProps> = ({ text, onComplete, onInput, difficulty }) => {
   const [input, setInput] = useState('');
   const [startTime, setStartTime] = useState<number | null>(null);
   const [isActive, setIsActive] = useState(false);
@@ -21,6 +22,7 @@ const TypingBox: React.FC<TypingBoxProps> = ({ text, onComplete, difficulty }) =
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setInput(value);
+    onInput(value);
     
     if (value === text) {
       setIsActive(false);
@@ -29,8 +31,8 @@ const TypingBox: React.FC<TypingBoxProps> = ({ text, onComplete, difficulty }) =
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4">
-      <div className="mb-4 text-xl font-mono text-gray-700">
+    <div className="w-full">
+      <div className="mb-6 text-lg md:text-xl font-mono text-gray-300 leading-relaxed">
         {text.split('').map((char, index) => (
           <span
             key={index}
@@ -39,7 +41,7 @@ const TypingBox: React.FC<TypingBoxProps> = ({ text, onComplete, difficulty }) =
                 ? 'text-green-500'
                 : input[index]
                 ? 'text-red-500'
-                : 'text-gray-400'
+                : 'text-gray-500'
             }`}
           >
             {char}
@@ -50,9 +52,10 @@ const TypingBox: React.FC<TypingBoxProps> = ({ text, onComplete, difficulty }) =
         type="text"
         value={input}
         onChange={handleInput}
-        className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full p-4 text-lg bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400"
         placeholder="Start typing..."
         disabled={!isActive && input === text}
+        autoFocus
       />
     </div>
   );
