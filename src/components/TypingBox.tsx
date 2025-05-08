@@ -3,10 +3,11 @@ import React, { useState, useEffect } from 'react';
 interface TypingBoxProps {
   text: string;
   onComplete: (time: number) => void;
+  onInput: (input: string) => void;
   difficulty: string;
 }
 
-const TypingBox: React.FC<TypingBoxProps> = ({ text, onComplete, difficulty }) => {
+const TypingBox: React.FC<TypingBoxProps> = ({ text, onComplete, onInput, difficulty }) => {
   const [input, setInput] = useState('');
   const [startTime, setStartTime] = useState<number | null>(null);
   const [isActive, setIsActive] = useState(false);
@@ -21,6 +22,7 @@ const TypingBox: React.FC<TypingBoxProps> = ({ text, onComplete, difficulty }) =
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setInput(value);
+    onInput(value);
     
     if (value === text) {
       setIsActive(false);
@@ -53,6 +55,7 @@ const TypingBox: React.FC<TypingBoxProps> = ({ text, onComplete, difficulty }) =
         className="w-full p-4 text-lg bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400"
         placeholder="Start typing..."
         disabled={!isActive && input === text}
+        autoFocus
       />
     </div>
   );

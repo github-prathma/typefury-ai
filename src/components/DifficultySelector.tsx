@@ -7,11 +7,11 @@ interface Difficulty {
 }
 
 interface DifficultySelectorProps {
-  onSelect: (difficulty: Difficulty) => void;
-  selectedDifficulty?: Difficulty;
+  selectedDifficulty: Difficulty;
+  onDifficultyChange: (difficulty: Difficulty) => void;
 }
 
-const DifficultySelector: React.FC<DifficultySelectorProps> = ({ onSelect, selectedDifficulty }) => {
+const DifficultySelector: React.FC<DifficultySelectorProps> = ({ onDifficultyChange, selectedDifficulty }) => {
   const difficulties: Difficulty[] = [
     { id: 'easy', label: 'Easy', words: 10 },
     { id: 'medium', label: 'Medium', words: 25 },
@@ -23,9 +23,9 @@ const DifficultySelector: React.FC<DifficultySelectorProps> = ({ onSelect, selec
       {difficulties.map((difficulty) => (
         <button
           key={difficulty.id}
-          onClick={() => onSelect(difficulty)}
+          onClick={() => onDifficultyChange(difficulty)}
           className={`px-6 py-2 rounded-lg transition-colors ${
-            selectedDifficulty?.id === difficulty.id
+            selectedDifficulty.id === difficulty.id
               ? 'bg-blue-600 text-white'
               : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
           }`}
