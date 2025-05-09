@@ -5,6 +5,7 @@ TypeFury AI is a solo typing speed game powered by OpenAI’s GPT API. Choose yo
 
 https://github.com/user-attachments/assets/aa50c925-808c-4c03-908d-d05817e6a356
 
+##Live: https://typefury-ai.vercel.app/
 
 ## 🚀 Features:
 
